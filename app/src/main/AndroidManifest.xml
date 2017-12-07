@@ -7,7 +7,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="BitWhale"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
@@ -19,6 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".CoinDetailActivity"></activity>
+        <activity android:name=".myPortfolio"></activity>
+        <activity android:name=".leaderBoard"></activity>
     </application>
 
 </manifest>

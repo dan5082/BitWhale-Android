@@ -2,7 +2,9 @@ package edu.illinois.finalproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,18 @@ import java.util.List;
         public void onBindViewHolder(ViewHolder holder, int position) {
            final Coin coin = coinDatas.get(position);
             holder.nameTextView.setText(coin.getName());
+            holder.priceByBtcTextView.setText("$" + coin.getPrice_usd());
+            GradientDrawable gradientDrawable = (GradientDrawable) holder.priceByBtcTextView.getBackground();
+            if(coin.getPercent_change_1h() > 0){
+                gradientDrawable.setColor(-10027213);
+                gradientDrawable.setAlpha(80);
+            }else{
+                gradientDrawable.setColor(-52480);
+                gradientDrawable.setAlpha(80);
+            }
+            //gradientDrawable.setColor(-16724737);
+            //gradientDrawable.setColors(new int[]{-16724737, 0xffff3300});
+            //Log.d("some shit","Gradiants are : " + gradientDrawable.getColors()[1]);
 
             final String imageUrl = coin.getImageUrl();
             if ( imageUrl != null && imageUrl.length() > 0){
@@ -86,7 +100,7 @@ import java.util.List;
                 super(itemView);
                 this.itemView = itemView;
                 this.nameTextView = (TextView) itemView.findViewById(R.id.nameView);
-               // this.priceByBtcTextView = (TextView) itemView.findViewById(R.id.);
+                this.priceByBtcTextView = (TextView) itemView.findViewById(R.id.priceView);
                 //this.userRatingTextView = (TextView) itemView.findViewById(R.id.rating);
                 this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
             }

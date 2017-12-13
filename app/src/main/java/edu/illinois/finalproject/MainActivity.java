@@ -10,21 +10,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.google.gson.Gson;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.charset.Charset;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -72,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = null;
                             if (drawerItem.getIdentifier() == 1) {
                                 final Context context = view.getContext();
-                                Intent openPort = new Intent(context, myPortfolio.class);
+                                Intent openPort = new Intent(context, MyPortfolio.class);
                                 context.startActivity(openPort);
                             }
                             if (drawerItem.getIdentifier() == 2) {
@@ -82,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if (drawerItem.getIdentifier() == 3) {
                                 final Context context = view.getContext();
-                                Intent openleaderboard = new Intent(context, leaderBoard.class);
+                                Intent openleaderboard = new Intent(context, LeaderBoard.class);
                                 context.startActivity(openleaderboard);
                             }
 

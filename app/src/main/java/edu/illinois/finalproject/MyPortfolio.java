@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
  * Created by dan5082 on 12/6/17.
  */
 
-public class myPortfolio extends AppCompatActivity {
+public class MyPortfolio extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,17 @@ public class myPortfolio extends AppCompatActivity {
             cAsyncTask.execute("https://api.coinmarketcap.com/v1/ticker/?limit=6" );
 
             final RecyclerView coinRe = (RecyclerView) findViewById(R.id.recyclerView);
+            final TextView ranking = findViewById(R.id.rankingText);
+
+           ranking.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    final Context context = v.getContext();
+                    Intent getLeaderboard = new Intent(context, LeaderBoard.class);
+                    context.startActivity(getLeaderboard);
+                }
+            });
 
             coinRe.setAdapter(coinAdapter);
             coinRe.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -90,7 +101,7 @@ public class myPortfolio extends AppCompatActivity {
                                 Intent intent = null;
                                 if (drawerItem.getIdentifier() == 1) {
                                     final Context context = view.getContext();
-                                    Intent openPort = new Intent(context, myPortfolio.class);
+                                    Intent openPort = new Intent(context, MyPortfolio.class);
                                     context.startActivity(openPort);
                                 }
                                 if (drawerItem.getIdentifier() == 2) {
@@ -100,7 +111,7 @@ public class myPortfolio extends AppCompatActivity {
                                 }
                                 if (drawerItem.getIdentifier() == 3) {
                                     final Context context = view.getContext();
-                                    Intent openLeaderboard = new Intent(context, leaderBoard.class);
+                                    Intent openLeaderboard = new Intent(context, LeaderBoard.class);
                                     context.startActivity(openLeaderboard);
                                 }
 

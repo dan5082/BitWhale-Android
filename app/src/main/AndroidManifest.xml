@@ -12,15 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/MyTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".CoinDetailActivity"></activity>
-        <activity android:name=".myPortfolio"></activity>
-        <activity android:name=".leaderBoard"></activity>
+        <activity android:name=".MyPortfolio">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".LeaderBoard"></activity>
+        <activity android:name=".TransactionActivity"></activity>
     </application>
 
 </manifest>

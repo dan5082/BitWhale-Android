@@ -4,12 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -17,13 +13,12 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by dan5082 on 12/6/17.
  */
 
-public class leaderBoard extends AppCompatActivity {
+public class LeaderBoard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +85,7 @@ public class leaderBoard extends AppCompatActivity {
                             Intent intent = null;
                             if (drawerItem.getIdentifier() == 1) {
                                 final Context context = view.getContext();
-                                Intent openPort = new Intent(context, myPortfolio.class);
+                                Intent openPort = new Intent(context, MyPortfolio.class);
                                 context.startActivity(openPort);
                             }
                             if (drawerItem.getIdentifier() == 2) {
@@ -100,7 +95,7 @@ public class leaderBoard extends AppCompatActivity {
                             }
                             if (drawerItem.getIdentifier() == 3) {
                                 final Context context = view.getContext();
-                                Intent openleaderboard = new Intent(context, leaderBoard.class);
+                                Intent openleaderboard = new Intent(context, LeaderBoard.class);
                                 context.startActivity(openleaderboard);
                             }
 

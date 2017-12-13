@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buy_button"
         android:layout_width="145dp"
         android:layout_height="55dp"
         android:layout_marginBottom="44dp"
@@ -26,12 +26,12 @@
         android:text="BUY"
         android:textColor="@color/md_green_500"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/sell_button"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/sell_button"
         android:layout_width="145dp"
         android:layout_height="55dp"
         android:layout_marginBottom="44dp"

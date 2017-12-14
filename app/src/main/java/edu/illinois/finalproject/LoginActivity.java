@@ -137,6 +137,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             //user.ge
             currUser = user;
 
+            UsersDataFire.inititateAccount(user.getUid());
+
 
 
             Intent openPort = new Intent(this, MyPortfolio.class);

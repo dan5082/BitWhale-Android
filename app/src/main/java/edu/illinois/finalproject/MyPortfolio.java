@@ -26,6 +26,8 @@ import com.squareup.picasso.Picasso;
 
 public class MyPortfolio extends AppCompatActivity {
 
+    public static int myRank;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -33,17 +35,9 @@ public class MyPortfolio extends AppCompatActivity {
             Toolbar toolbar = (Toolbar) findViewById (R.id.toolbar);
             setSupportActionBar (toolbar);
 
-            // Passing in all the needed information
-            //final Intent intent = getIntent();
-            // Coin coin = intent.getParcelableExtra("coin");
-            //final ImageView coinImage = (ImageView) findViewById(R.id.detail_coin_img);
-            // final TextView coinName = (TextView) findViewById(R.id.detailed_name);
-            //final TextView coinCap = (TextView) findViewById(R.id.marketCapDet);
-            // final TextView coinBtcPrice = (TextView) findViewById(R.id.priceBTCdet);
-            // coinName.setText(coin.getName());
-            // coinCap.setText("market cap: $" + coin.getMarket_cap_usd());
-            // coinBtcPrice.setText("Price in BTC: " + coin.getPrice_btc());
+
             final CoinAdapter coinAdapter = new CoinAdapter();
+            //UsersDataFire.getAUsersCoins(LoginActivity.currUser.getUid());
 
             coinAsyncTask cAsyncTask = new coinAsyncTask(coinAdapter);
             cAsyncTask.execute("https://api.coinmarketcap.com/v1/ticker/?limit=6" );
@@ -51,6 +45,7 @@ public class MyPortfolio extends AppCompatActivity {
             final RecyclerView coinRe = (RecyclerView) findViewById(R.id.recyclerView);
             final TextView ranking = findViewById(R.id.rankingText);
             final TextView userName = findViewById(R.id.playerName);
+            final TextView portValue = findViewById(R.id.portValue);
 
            ranking.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,6 +75,9 @@ public class MyPortfolio extends AppCompatActivity {
             }
 
             userName.setText(LoginActivity.currUser.getDisplayName());
+            ranking.setText("Rank: "+ LeaderboardDataFire.getRankOfPlayer(LoginActivity.currUser.getDisplayName()));
+            portValue.setText("Portfolio Value: Ƀ" + UsersDataFire.getPortfolioValue().toString());
+            myRank =  LeaderboardDataFire.getRankOfPlayer(LoginActivity.currUser.getDisplayName());
 
             PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("My Portfolio");
             SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Top 100 Coins");

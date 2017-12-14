@@ -12,6 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 
 //import static android.content.ContentValues.TAG;
 
@@ -25,6 +27,8 @@ public class coinAsyncTask extends AsyncTask<String, Integer, Coins> {
     public static final String TAG = coinAsyncTask.class.getSimpleName();
     private CoinAdapter coinAdapter;
     Coin[] coinArray;
+    public static Map<String,Double> coinBtcPriceMap = new HashMap<>();
+
     //Coins theCoins;
 
 
@@ -66,9 +70,11 @@ public class coinAsyncTask extends AsyncTask<String, Integer, Coins> {
             return;
         }
         coinAdapter.setRestaurantAdapter(baseJsonData.getCoins());
+        //ownedCoinAdapter.setRestaurantAdapter(baseJsonData.getCoins());
         for (int i = 0; i < baseJsonData.getCoins().length; i++) {
             String coinName = baseJsonData.getCoins()[i].getName();
             Log.d(TAG, "Coin Name: " + coinName);
+            coinBtcPriceMap.put(baseJsonData.getCoins()[i].getId(),baseJsonData.getCoins()[i].getPrice_btc());
         }
         coinAdapter.notifyDataSetChanged();
     }

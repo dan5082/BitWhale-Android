@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -26,6 +27,24 @@ public class LeaderBoard extends AppCompatActivity {
         setContentView(R.layout.leaderboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        LeaderboardDataFire.getLeaderboard();
+
+        TextView myRank = findViewById(R.id.leaderboardMe);
+        myRank.setText("Your rank: " + String.valueOf(LeaderboardDataFire.getRankOfPlayer(LoginActivity.currUser.getDisplayName())));
+        TextView rank1 = findViewById(R.id.rankFirst);
+        TextView rank2 = findViewById(R.id.rankSec);
+        TextView rank3 = findViewById(R.id.rankThird);
+        TextView rank4 = findViewById(R.id.rankFourth);
+        TextView rank5 = findViewById(R.id.rankFifth);
+
+        rank1.setText("Current Winner: " + LeaderboardDataFire.getPlayerRanks().get(1) + "! ");
+        rank2.setText("2nd: " + LeaderboardDataFire.getPlayerRanks().get(2));
+        rank3.setText("3rd: " + LeaderboardDataFire.getPlayerRanks().get(3));
+        rank4.setText("4th: " + LeaderboardDataFire.getPlayerRanks().get(4));
+        rank5.setText("5th: " + LeaderboardDataFire.getPlayerRanks().get(5));
+
+
+
 
         // Passing in all the needed information
         //final Intent intent = getIntent();

@@ -50,6 +50,7 @@ public class MyPortfolio extends AppCompatActivity {
 
             final RecyclerView coinRe = (RecyclerView) findViewById(R.id.recyclerView);
             final TextView ranking = findViewById(R.id.rankingText);
+            final TextView userName = findViewById(R.id.playerName);
 
            ranking.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,13 +71,15 @@ public class MyPortfolio extends AppCompatActivity {
 
 
             //If the url is !null we will use picasso to fetch the image
-            final String imageUrl = "https://avatars2.githubusercontent.com/u/1738461?s=400&v=4";
-            if ( imageUrl != null && imageUrl.length() > 0){
-                Picasso.with(this).load(imageUrl).into(profilePicture);
+            //final String imageUrl = LoginActivity.currUser.getPhotoUrl();
+            if ( LoginActivity.currUser.getPhotoUrl() != null ){
+                Picasso.with(this).load(LoginActivity.currUser.getPhotoUrl()).into(profilePicture);
                 profilePicture.setVisibility(View.VISIBLE);
             }else{
                 profilePicture.setVisibility(View.INVISIBLE);
             }
+
+            userName.setText(LoginActivity.currUser.getDisplayName());
 
             PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("My Portfolio");
             SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Top 100 Coins");

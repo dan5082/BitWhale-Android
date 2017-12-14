@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
+    public static FirebaseUser currUser;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -134,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // loading the profile picture
          //   Picasso.with(this).load(user.getPhotoUrl()).into(profilePicture);
             //user.ge
+            currUser = user;
 
 
 

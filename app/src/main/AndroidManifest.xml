@@ -14,7 +14,8 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".CoinDetailActivity"></activity>
-        <activity android:name=".MyPortfolio">
+        <activity android:name=".MyPortfolio"></activity>
+        <activity android:name=".LoginActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
